@@ -1,13 +1,13 @@
 <?php
 
-namespace app\common\models\query;
+namespace common\models\query;
 
 /**
- * This is the ActiveQuery class for [[\app\common\models\Task]].
+ * This is the ActiveQuery class for [[\common\models\Project]].
  *
- * @see \app\common\models\Task
+ * @see \common\models\Project
  */
-class TaskQuery extends \yii\db\ActiveQuery
+class ProjectQuery extends \yii\db\ActiveQuery
 {
     /*public function active()
     {
@@ -16,7 +16,7 @@ class TaskQuery extends \yii\db\ActiveQuery
 
     /**
      * {@inheritdoc}
-     * @return \app\common\models\Task[]|array
+     * @return \common\models\Project[]|array
      */
     public function all($db = null)
     {
@@ -25,7 +25,7 @@ class TaskQuery extends \yii\db\ActiveQuery
 
     /**
      * {@inheritdoc}
-     * @return \app\common\models\Task|array|null
+     * @return \common\models\Project|array|null
      */
     public function one($db = null)
     {

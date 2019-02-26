@@ -1,6 +1,6 @@
 <?php
 
-namespace app\common\models;
+namespace common\models;
 
 use Yii;
 
@@ -95,10 +95,10 @@ class Task extends \yii\db\ActiveRecord
 
     /**
      * {@inheritdoc}
-     * @return \app\common\models\query\TaskQuery the active query used by this AR class.
+     * @return \common\models\query\TaskQuery the active query used by this AR class.
      */
     public static function find()
     {
-        return new \app\common\models\query\TaskQuery(get_called_class());
+        return new \common\models\query\TaskQuery(get_called_class());
     }
 }
