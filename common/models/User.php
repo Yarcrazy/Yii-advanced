@@ -18,6 +18,7 @@ use yii\web\IdentityInterface;
  * @property string $password_reset_token
  * @property string $email
  * @property string $auth_key
+ * @property string $avatar
  * @property integer $status
  * @property integer $created_at
  * @property integer $updated_at
@@ -27,6 +28,7 @@ use yii\web\IdentityInterface;
  * @property Task[] $activedTasks
  * @property Project[] $createdProjects
  * @property Project[] $updatedProjects
+ * @mixin \mohorev\file\UploadImageBehavior::class
  */
 class User extends ActiveRecord implements IdentityInterface
 {
