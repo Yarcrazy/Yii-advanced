@@ -10,7 +10,12 @@ use yii\bootstrap\ActiveForm;
 
 <div class="user-form">
 
-  <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
+  <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data'],
+    'layout' => 'horizontal',
+    'fieldConfig' => [
+      'horizontalCssClasses' => ['label' => 'col-sm-2',]
+    ],
+  ]); ?>
 
   <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
 
@@ -23,8 +28,10 @@ use yii\bootstrap\ActiveForm;
 
   <?= $form->field($model, 'status')->dropDownList(\common\models\User::STATUS_LABELS) ?>
 
-	<div class="form-group">
-    <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+	<div class="row">
+		<div class="col-md-2 col-md-offset-2">
+      <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+		</div>
 	</div>
 
   <?php ActiveForm::end(); ?>
