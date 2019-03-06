@@ -122,6 +122,9 @@ use yii\helpers\Html;
 							<p>
                 <?= Yii::$app->user->identity->username ?>
 							</p>
+							<p>
+                <?= Yii::$app->user->identity->email ?>
+							</p>
 						</li>
 						<!-- Menu Body -->
 						<li class="user-body">
