@@ -48,7 +48,7 @@ use unclead\multipleinput\MultipleInput;
             'name' => 'role',
             'type' => 'dropDownList',
             'title' => 'Роль',
-            'items' => \common\models\ProjectUser::ROLES,
+            'items' => \common\models\ProjectUser::ROLE_LABELS,
           ],
         ]
       ]);
