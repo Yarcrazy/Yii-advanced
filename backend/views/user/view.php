@@ -32,7 +32,9 @@ $this->params['breadcrumbs'][] = $this->title;
       'username',
       [
         'attribute' => 'avatar',
-        'label' => Html::img($model->getThumbUploadUrl('avatar', \common\models\User::AVATAR_ICO)),
+        'value' => Html::img($model->
+        	getThumbUploadUrl('avatar', \common\models\User::AVATAR_PREVIEW)),
+        'format' => 'html',
       ],
       'email:email',
       [
