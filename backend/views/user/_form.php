@@ -11,10 +11,10 @@ use yii\bootstrap\ActiveForm;
 <div class="user-form">
 
   <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data'],
-    'layout' => 'horizontal',
-    'fieldConfig' => [
-      'horizontalCssClasses' => ['label' => 'col-sm-2',]
-    ],
+	'layout' => 'horizontal',
+	'fieldConfig' => [
+	'horizontalCssClasses' => ['label' => 'col-sm-2',]
+	],
   ]); ?>
 
   <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>

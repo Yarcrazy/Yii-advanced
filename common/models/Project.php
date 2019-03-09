@@ -72,7 +72,7 @@ class Project extends \yii\db\ActiveRecord
       [['description'], 'string'],
       [['active', 'creator_id', 'updater_id', 'created_at', 'updated_at'], 'integer'],
       [['title'], 'string', 'max' => 255],
-      ['status', 'in', 'range' => self::STATUSES],
+      ['active', 'in', 'range' => self::STATUSES],
       [['creator_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['creator_id' => 'id']],
       [['updater_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['updater_id' => 'id']],
     ];

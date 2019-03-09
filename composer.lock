@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "21d43ab2cf2f441cdc45ae15d9f4e19c",
+    "content-hash": "ba4f4485cbb570874cdee2b966d23ad6",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -1970,6 +1970,55 @@
                 "url"
             ],
             "time": "2019-02-23T16:20:51+00:00"
+        },
+        {
+            "name": "unclead/yii2-multiple-input",
+            "version": "2.19.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/unclead/yii2-multiple-input.git",
+                "reference": "753e7be9c6c6a4f90c70d3be8950d4c83b64dd54"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/unclead/yii2-multiple-input/zipball/753e7be9c6c6a4f90c70d3be8950d4c83b64dd54",
+                "reference": "753e7be9c6c6a4f90c70d3be8950d4c83b64dd54",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "yiisoft/yii2": ">=2.0.13"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "5.7.*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "unclead\\multipleinput\\examples\\": "examples/",
+                    "unclead\\multipleinput\\": "src/",
+                    "unclead\\multipleinput\\tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Eugene Tupikov",
+                    "email": "unclead.nsk@gmail.com"
+                }
+            ],
+            "description": "Widget for handle multiple inputs for an attribute of Yii2 framework model",
+            "keywords": [
+                "yii2",
+                "yii2 array input",
+                "yii2 multiple field",
+                "yii2 multiple input",
+                "yii2 tabular input"
+            ],
+            "time": "2019-02-02T07:38:08+00:00"
         },
         {
             "name": "yiisoft/yii2",
