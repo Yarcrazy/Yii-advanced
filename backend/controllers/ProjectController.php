@@ -86,10 +86,19 @@ class ProjectController extends Controller
   public function actionUpdate($id)
   {
     $model = $this->findModel($id);
+    $projectUsers = $model->getProjectData();
 
     if ($this->loadModel($model) && $model->save()) {
+      $diffRoles = array_diff_assoc($model->getProjectData(), $projectUsers);
+      if ($diffRoles) {
+        foreach($diffRoles as $userId => $role) {
+          Yii::$app->projectService->AssignRole($model, User::findOne($userId), $role);
+        }
+      }
       return $this->redirect(['view', 'id' => $model->id]);
     }
+
+
 
     $user = User::find()->select('username')->indexBy('id')->column();
     return $this->render('update', [
