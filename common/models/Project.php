@@ -135,4 +135,8 @@ class Project extends \yii\db\ActiveRecord
   {
     return new \common\models\query\ProjectQuery(get_called_class());
   }
+
+  public function getProjectData() {
+    return $this->getProjectUsers()->select('role')->indexBy('user_id')->column();
+  }
 }
