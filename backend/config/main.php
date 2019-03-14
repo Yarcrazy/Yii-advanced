@@ -17,6 +17,14 @@ return [
     'request' => [
       'csrfParam' => '_csrf-backend',
     ],
+    'projectService' => [
+      'class' => \common\services\ProjectService::class,
+        'on. ' . \common\services\ProjectService::EVENT_ASSIGN_ROLE =>
+          function(\common\services\events\AssignRoleEvent $e) {
+            // Yii::info(\common\services\ProjectService::EVENT_ASSIGN_ROLE, '_');
+            
+          },
+    ],
     'user' => [
       'identityClass' => 'common\models\User',
       'enableAutoLogin' => true,
