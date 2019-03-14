@@ -17,6 +17,9 @@ return [
     'request' => [
       'csrfParam' => '_csrf-backend',
     ],
+    'emailService' => [
+      'class' => \common\services\EmailService::class,
+    ],
     'projectService' => [
       'class' => \common\services\ProjectService::class,
         'on. ' . \common\services\ProjectService::EVENT_ASSIGN_ROLE =>
