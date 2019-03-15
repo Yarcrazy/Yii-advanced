@@ -5,6 +5,7 @@ namespace backend\controllers;
 use Yii;
 use common\models\User;
 use common\models\search\UserSearch;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -26,6 +27,14 @@ class UserController extends Controller
           'delete' => ['POST'],
         ],
       ],
+//      'access' => [
+//        'class' => AccessControl::className(),
+//        'rules' => [
+//          'actions' => [],
+//          'allow' => true,
+//          'roles' => ['?']
+//        ],
+//      ],
     ];
   }
 
@@ -96,6 +105,25 @@ class UserController extends Controller
     ]);
   }
 
+  /**
+   * Updates an current login User model.
+   * If update is successful, the browser will be redirected to the 'view' page.
+   * @return mixed
+   * @throws NotFoundHttpException if the model cannot be found
+   */
+  public function actionProfile()
+  {
+    $model = $this->findModel(Yii::$app->user->identity->getId());
+    $model->setScenario(User::SCENARIO_UPDATE);
+
+    if ($model->load(Yii::$app->request->post()) && $model->save()) {
+      return $this->redirect(['view', 'id' => $model->id]);
+    }
+
+    return $this->render('profile', [
+      'model' => $model,
+    ]);
+  }
   /**
    * Deletes an existing User model.
    * If deletion is successful, the browser will be redirected to the 'index' page.
