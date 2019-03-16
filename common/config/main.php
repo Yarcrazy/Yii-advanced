@@ -23,8 +23,19 @@ return [
           Yii::$app->notificationService->send($e->user, $e->project, $e->role);
         },
     ],
+    'i18n' => [
+      'translations' => [
+        'yii2mod.comments' => [
+          'class' => 'yii\i18n\PhpMessageSource',
+          'basePath' => '@yii2mod/comments/messages',
+        ],
+      ],
+    ],
   ],
   'modules' => [
     'chat' => \common\modules\chat\Module::class,
+    'comment' => [
+      'class' => 'yii2mod\comments\Module',
+    ],
   ],
 ];
