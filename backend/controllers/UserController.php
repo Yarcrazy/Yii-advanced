@@ -27,14 +27,17 @@ class UserController extends Controller
           'delete' => ['POST'],
         ],
       ],
-//      'access' => [
-//        'class' => AccessControl::className(),
-//        'rules' => [
-//          'actions' => [],
-//          'allow' => true,
-//          'roles' => ['?']
-//        ],
-//      ],
+      'access' => [
+        'class' => AccessControl::className(),
+        'only' => [],
+        'rules' => [
+          [
+            'allow' => true,
+            'actions' => [],
+            'roles' => ['@'],
+          ],
+        ],
+      ],
     ];
   }
 
@@ -124,6 +127,7 @@ class UserController extends Controller
       'model' => $model,
     ]);
   }
+
   /**
    * Deletes an existing User model.
    * If deletion is successful, the browser will be redirected to the 'index' page.
