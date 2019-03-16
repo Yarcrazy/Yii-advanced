@@ -6,7 +6,7 @@ use unclead\multipleinput\MultipleInput;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Project */
-/* @var $user common\models\User */
+/* @var $user array */
 /* @var $form yii\bootstrap\ActiveForm */
 ?>
 
