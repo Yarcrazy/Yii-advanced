@@ -15,7 +15,7 @@ class ProjectUserQuery extends \yii\db\ActiveQuery
   }*/
   public function byUser($userId)
   {
-    return $this->andWhere(['id' => $userId]);
+    return $this->andWhere(['user_id' => $userId]);
   }
 
   /**
