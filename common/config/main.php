@@ -12,6 +12,9 @@ return [
     'emailService' => [
       'class' => \common\services\EmailService::class,
     ],
+    'taskService' => [
+      'class' => \common\services\TaskService::class,
+    ],
     'notificationService' => [
       'class' => \common\services\NotificationService::class,
     ],
