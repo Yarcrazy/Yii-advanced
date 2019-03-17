@@ -2,26 +2,27 @@
 
 namespace common\models\query;
 
+use common\models\User;
+
 /**
- * This is the ActiveQuery class for [[\common\models\Task]].
+ * This is the ActiveQuery class for [[\common\models\User]].
  *
- * @see \common\models\Task
+ * @see \common\models\User
  */
-class TaskQuery extends \yii\db\ActiveQuery
+class UserQuery extends \yii\db\ActiveQuery
 {
   /*public function active()
   {
       return $this->andWhere('[[status]]=1');
   }*/
-
-  public function byUser($userId)
+  public function onlyActive()
   {
-    return $this->andWhere(['id' => $userId]);
+    return $this->andWhere(['active' => User::STATUS_ACTIVE]);
   }
 
   /**
    * {@inheritdoc}
-   * @return \common\models\Task[]|array
+   * @return \common\models\User[]|array
    */
   public function all($db = null)
   {
@@ -30,7 +31,7 @@ class TaskQuery extends \yii\db\ActiveQuery
 
   /**
    * {@inheritdoc}
-   * @return \common\models\Task|array|null
+   * @return \common\models\User|array|null
    */
   public function one($db = null)
   {

@@ -9,26 +9,30 @@ namespace common\models\query;
  */
 class ProjectQuery extends \yii\db\ActiveQuery
 {
-    /*public function active()
-    {
-        return $this->andWhere('[[status]]=1');
-    }*/
+  /*public function active()
+  {
+      return $this->andWhere('[[status]]=1');
+  }*/
+  public function byUser($userId)
+  {
+    return $this->andWhere(['id' => $userId]);
+  }
 
-    /**
-     * {@inheritdoc}
-     * @return \common\models\Project[]|array
-     */
-    public function all($db = null)
-    {
-        return parent::all($db);
-    }
+  /**
+   * {@inheritdoc}
+   * @return \common\models\Project[]|array
+   */
+  public function all($db = null)
+  {
+    return parent::all($db);
+  }
 
-    /**
-     * {@inheritdoc}
-     * @return \common\models\Project|array|null
-     */
-    public function one($db = null)
-    {
-        return parent::one($db);
-    }
+  /**
+   * {@inheritdoc}
+   * @return \common\models\Project|array|null
+   */
+  public function one($db = null)
+  {
+    return parent::one($db);
+  }
 }
