@@ -125,6 +125,37 @@ class TaskController extends Controller
   }
 
   /**
+   * Take the task.
+   * @param integer $id
+   * @return mixed
+   * @throws NotFoundHttpException if the model cannot be found
+   */
+  public function actionTake($id)
+  {
+    $model = $this->findModel($id);
+    if (Yii::$app->taskService->takeTask($model, Yii::$app->user->identity)->save()) {
+      Yii::$app->session->setFlash('success', 'You take this task!');
+      return $this->redirect(['view', 'id' => $model->id]);
+    };
+    return false;
+  }
+
+  /**
+   * Complete the task.
+   * @param integer $id
+   * @return mixed
+   * @throws NotFoundHttpException if the model cannot be found
+   */
+  public function actionComplete($id)
+  {
+    $model = $this->findModel($id);
+    if (Yii::$app->taskService->completeTask($model)->save()) {
+      Yii::$app->session->setFlash('success', 'You complete this task!');
+      return $this->redirect(['view', 'id' => $model->id]);
+    };
+    return false;
+  }
+  /**
    * Finds the Task model based on its primary key value.
    * If the model is not found, a 404 HTTP exception will be thrown.
    * @param integer $id
