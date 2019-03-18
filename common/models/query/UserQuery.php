@@ -17,7 +17,7 @@ class UserQuery extends \yii\db\ActiveQuery
   }*/
   public function onlyActive()
   {
-    return $this->andWhere(['active' => User::STATUS_ACTIVE]);
+    return $this->andWhere(['status' => User::STATUS_ACTIVE]);
   }
 
   /**
