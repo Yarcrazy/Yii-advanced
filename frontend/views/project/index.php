@@ -14,10 +14,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a('Create Project', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
     <?php Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
@@ -27,16 +23,24 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
             'title',
+            [
+            	'attribute' => \common\models\Project::RELATION_PROJECT_USERS.'.role',
+							'value' => function(\common\models\Project $model) {
+                return join(', ', Yii::$app->projectService->getRoles($model, Yii::$app->user->identity));
+							},
+							'format' => 'html',
+						],
             'description:ntext',
             'active',
             'creator_id',
+
             //'updater_id',
             //'created_at',
             //'updated_at',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn',
+							'template' => '{view} {delete}'],
         ],
     ]); ?>
 
