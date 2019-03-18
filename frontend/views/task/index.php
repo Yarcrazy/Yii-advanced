@@ -76,6 +76,24 @@ $this->params['breadcrumbs'][] = $this->title;
 
       [
       	'class' => 'yii\grid\ActionColumn',
+        'template' => '{view} {update} {delete} {take} {complete}',
+				'buttons' =>
+          [
+            'take' => function ($url, $model, $key) {
+              $icon = \yii\bootstrap\Html::icon('hand-right');
+              return Html::a($icon, ['task/take', 'id' => $model->id], ['data' => [
+              	'confirm' => 'Do you take the task?',
+								'method' => 'post',
+							],]);
+            },
+            'complete' => function ($url, $model, $key) {
+              $icon = \yii\bootstrap\Html::icon('ok');
+              return Html::a($icon, ['task/complete', 'id' => $model->id], ['data' => [
+              	'confirm' => 'Do you complete the task?',
+								'method' => 'post',
+							],]);
+            }
+          ],
 				'visibleButtons' => [
 					'update' => function(\common\models\Task $model) {
 						return Yii::$app->taskService->canManage($model->project, Yii::$app->user->identity);
@@ -83,6 +101,12 @@ $this->params['breadcrumbs'][] = $this->title;
 					'delete' => function(\common\models\Task $model) {
 						return Yii::$app->taskService->canManage($model->project, Yii::$app->user->identity);
 					},
+          'take' => function(\common\models\Task $model, $key, $index) {
+            return Yii::$app->taskService->canTake($model, Yii::$app->user->identity);
+          },
+          'complete' => function(\common\models\Task $model, $key, $index) {
+            return Yii::$app->taskService->canComplete($model, Yii::$app->user->identity);
+          },
 				],
 			],
     ],
