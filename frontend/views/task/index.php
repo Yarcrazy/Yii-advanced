@@ -74,7 +74,17 @@ $this->params['breadcrumbs'][] = $this->title;
       //'created_at',
       //'updated_at',
 
-      ['class' => 'yii\grid\ActionColumn'],
+      [
+      	'class' => 'yii\grid\ActionColumn',
+				'visibleButtons' => [
+					'update' => function(\common\models\Task $model) {
+						return Yii::$app->taskService->canManage($model->project, Yii::$app->user->identity);
+					},
+					'delete' => function(\common\models\Task $model) {
+						return Yii::$app->taskService->canManage($model->project, Yii::$app->user->identity);
+					},
+				],
+			],
     ],
   ]); ?>
 
