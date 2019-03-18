@@ -30,7 +30,17 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'title',
             'description:ntext',
-            'project_id',
+            [
+            	'attribute' => 'project_id',
+							'label' => 'Project',
+							'value' => function(\common\models\Task $model) {
+    						return Html::a($model->project->title, ['project/view', 'id' =>
+									$model->project_id]);
+							},
+							'filter' => \common\models\Project::find()->onlyActive()
+								->select('title')->indexBy('id')->column(),
+							'format' => 'html',
+						],
             'executor_id',
             //'started_at',
             //'completed_at',
