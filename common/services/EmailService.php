@@ -4,7 +4,7 @@ namespace common\services;
 use Yii;
 use yii\base\Component;
 
-class EmailService extends Component
+class EmailService extends Component implements EmailServiceInterface
 {
   /**
    * @param $to string
