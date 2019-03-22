@@ -43,8 +43,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'attribute' => 'creator_id',
 				'label' => 'Creator',
         'value' => function (\common\models\Project $model) {
-          return $model->creator->username;
-        }
+          return Html::a($model->creator->username, ['user/view', 'id' =>
+            $model->creator_id]);
+        },
+        'format' => 'html',
       ],
 
       //'updater_id',
